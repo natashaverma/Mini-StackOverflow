@@ -1,0 +1,34 @@
+<% layout('layout') %>
+
+<link rel="stylesheet" href="/css/landing.css">
+
+<div class="container-fluid site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <img class="img-circle img-responsive img-center center-block" src="<%= user.profile.picture%>" alt="Avatar">
+                </div>
+                <div class="col-md-12 offset-md-2 col-sm-12 profile_data">
+                    <p>Name : <%= user.profile.name%></p>
+                    <p>Email : <%= user.email%></p>
+                    <p>Age: <%= user.profile.age %></p>
+                    <p>Occupation: <%= user.profile.occupation %></p>
+                    <p>Bio: <%= user.profile.bio %></p>
+                    <p>Country: <%= user.profile.country %></p>
+                    <p>Languages: <%= user.profile.languages %></p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+</div>

@@ -1,0 +1,63 @@
+
+ <%- layout('layout')%>
+
+<link rel="stylesheet" href="/css/stories.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+    <div>
+        <div class="qa-message-list">
+            <% for(let i=0;i<question.length;i++) { %>
+            <div class="message-item" id="m16">
+                <div class="message-inner">
+                    <div class="message-head clearfix">
+                        
+                        <div class="user-detail">
+                            <h5 class="handle">
+                                <%= question[i].textone%>
+                            </h5>
+                            <div class="post-meta">
+                                <div class="asker-meta">
+                                    <span class="qa-message-what"></span>
+                                    <span class="qa-message-when">
+												<span class="qa-message-when-data"><%= question[i].texttwo%></span>
+											</span>
+                                   
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="qa-message-content message-head">
+                    <% if(question[i].answers.length > 0){ %>
+                        <% for(let j =0; j<question[i].answers.length ; j++){ %>
+                                <div class="message-head clearfix">
+                               <p class="description"><%= question[i].answers[j].text %></p>
+                                </div>
+                               <br>
+                               <%} %>
+                           <%} %>
+                    </div>
+                    <%= question[i].likes%>
+                  <a href="/like/<%= question[i].id %> " > <i class="fa fa-thumbs-o-up reactions" aria-hidden="true"></i></a>
+
+                  <%= question[i].dislikes%>
+                  <a href="/dislike/<%= question[i].id %> " > <i class="fa fa-thumbs-o-down reactions" aria-hidden="true"></i></a>
+                </div>
+                <form action="/answer/<%= question[i].id %>">
+                    <button type="submit" id="submit"  class="btn btn-success btn-lg">Answer</button>
+                 </form>
+            </div>
+
+               
+            <% } %>
+
+        </div>
+
+        <form action="/stories">
+            <button type="submit" id="submit" class="btn btn-success btn-lg">Ask a question</button>
+        </form>
+    </div>
+</div>
+
